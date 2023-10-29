@@ -1,10 +1,26 @@
 public class WeightConverter
 {
     private double originalWeight;
+    private int choice;
 
-    public WeightConverter(double oW)
+    public WeightConverter(double oW, int c)
     {
         originalWeight = oW;
+        choice = c;
+    }
+
+    private double chooseConversion()
+    {
+        double finalWeight = 0;
+        if (choice == 1)
+        {
+            finalWeight = convertLbstoKilo();
+        }
+        else
+        {
+            finalWeight = convertKilostoLbs();
+        }
+        return finalWeight;
     }
 
     private double convertLbstoKilo()
