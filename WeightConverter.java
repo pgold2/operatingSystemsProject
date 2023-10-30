@@ -9,7 +9,7 @@ public class WeightConverter
         choice = c;
     }
 
-    private double chooseConversion()
+    public double chooseConversion()
     {
         double finalWeight = 0;
         if (choice == 1)
@@ -23,14 +23,14 @@ public class WeightConverter
         return finalWeight;
     }
 
-    private double convertLbstoKilo()
+    public double convertLbstoKilo()
     {
        double finalWeight = originalWeight *.454;
        System.out.println(originalWeight + " LB is " + finalWeight + "KL.");
        return finalWeight;
     }
 
-    private double convertKilostoLbs()
+    public double convertKilostoLbs()
     {
         double finalWeight = originalWeight * 2.205;
         System.out.println(originalWeight + " KL is " + finalWeight + "KL.");

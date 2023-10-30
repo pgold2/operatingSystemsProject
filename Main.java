@@ -1,4 +1,4 @@
-package semesterProject;
+// package semesterProject;
 
 import java.util.*;
 
@@ -73,13 +73,14 @@ public class Main {
 	// method: validates "choice" and sends "choice" to appropriate classes and methods
 		public static void weightMenu(Scanner scanner, double weight, int choice) {
 			if (choice == 1) {
-				// calls class.method that converts from lbs to kilo
-				// class.convertToKilo(weight);
+				WeightConverter weightConverter = new WeightConverter(100.00, 1);
+				double convertedWeight = weightConverter.chooseConversion();
 				System.out.println(" you picked 1"); // this is here just for testing and clarification purposes
 			} // closes if 1
 			else if (choice == 2) {
-				// calls class.method that converts from kilo to lbs
-				// class.convertToLbs(weight);
+
+				WeightConverter weightConverter = new WeightConverter(45.3, 2);
+				double convertedWeight = weightConverter.chooseConversion();
 				System.out.println(" you picked 2"); // this is here just for testing and clarification purposes
 			} // closes if 2
 			else {
