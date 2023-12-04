@@ -7,13 +7,13 @@
  */
 public class SlaveA
 {
-   private int jobNum;
+   private char jobNum;
 
     /**
      *
      * @param j corresponds to jobNum which is either 1 or 2
      */
-   public SlaveA(int j)
+   public SlaveA(char j)
    {
        jobNum = j;
 
@@ -22,24 +22,24 @@ public class SlaveA
    public void doJob()
    {
 
-       if (jobNum == 1)
+       if (jobNum == 'A')
        {
            int sleep = 2;
            while (sleep > 0)
            {
                sleep--;
            }
-           System.out.println("job 1 done.");
+           System.out.println("job A done.");
        }
        // job 2 will sleep for  sec on slaveA
-       if (jobNum == 2)
+       if (jobNum == 'B')
        {
            int sleep = 10;
            while (sleep > 0)
            {
                sleep--;
            }
-           System.out.println("job 2 done.");
+           System.out.println("job B done.");
        }
 
 

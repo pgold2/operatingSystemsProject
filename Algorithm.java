@@ -1,4 +1,3 @@
-
 public class Algorithm {
 	private static char jobHandler;
 
@@ -23,8 +22,8 @@ public class Algorithm {
 
 	private static void sendToSlaveAccToJobType(char jobHandler) {
 
-		int waitTimeSlaveA= 0;
-		int waitTimeSlaveB = 0;
+		SlaveWaitTime waitTimeSlaveA = new SlaveWaitTime(0);
+		SlaveWaitTime waitTimeSlaveB = new SlaveWaitTime(0);
 		//char jobType = ' ';
 		if (jobHandler == 'A') {
 			jobTypeIsA(waitTimeSlaveA, waitTimeSlaveB, jobHandler);
@@ -36,44 +35,56 @@ public class Algorithm {
 
 
 	//sends job A to fastest slave
-	private static void jobTypeIsA(int waitTimeSlaveA, int waitTimeSlaveB, char jobHandler) {
+	private static void jobTypeIsA(SlaveWaitTime waitTimeSlaveA, SlaveWaitTime waitTimeSlaveB, char jobHandler) {
 		if (jobHandler == 'A') {
-			if (waitTimeSlaveA + 2 < waitTimeSlaveB + 10) {
+			if (waitTimeSlaveA.getCurrValue() + 2 < waitTimeSlaveB.getCurrValue() + 10) {
 				// calls slave A
-				waitTimeSlaveA = waitTimeSlaveA + 2;
+				waitTimeSlaveA.setCurrValue(waitTimeSlaveA.getCurrValue() + 2);
+				SlaveA slaveA = new SlaveA(jobHandler);
+				slaveA.doJob();
+				waitTimeSlaveA.setCurrValue(waitTimeSlaveA.getCurrValue() - 2);
 			} else {
 				// put job on slave B
-				waitTimeSlaveB = waitTimeSlaveB + 10;
+				waitTimeSlaveB.setCurrValue(waitTimeSlaveB.getCurrValue() + 10);
+				SlaveB slaveB = new SlaveB(jobHandler);
+				slaveB.doJob();
+				waitTimeSlaveB.setCurrValue(waitTimeSlaveB.getCurrValue() - 10);
 			}
 		} else if (jobHandler == 'B') {
-			if (waitTimeSlaveB + 2 < waitTimeSlaveA + 10) {
+			if (waitTimeSlaveB.getCurrValue() + 2 < waitTimeSlaveA.getCurrValue() + 10) {
 				// put job on slave B
-				waitTimeSlaveB = waitTimeSlaveB + 2;
+				waitTimeSlaveB.setCurrValue(waitTimeSlaveB.getCurrValue() + 2);
+				SlaveB slaveB = new SlaveB(jobHandler);
+				slaveB.doJob();
+				waitTimeSlaveB.setCurrValue(waitTimeSlaveB.getCurrValue() - 2);
 			} else {
 				// put job on slave a
-				waitTimeSlaveA = waitTimeSlaveA + 10;
+				waitTimeSlaveA.setCurrValue(waitTimeSlaveA.getCurrValue() + 10);
+				SlaveA slaveA = new SlaveA(jobHandler);
+				slaveA.doJob();
+				waitTimeSlaveA.setCurrValue(waitTimeSlaveA.getCurrValue() + 10);
 			}
 
 		}
 	}
 
 	//sends job B to fastest slave
-	private static void jobTypeIsB(int waitTimeSlaveA, int waitTimeSlaveB, char jobType) {
+	private static void jobTypeIsB(SlaveWaitTime waitTimeSlaveA, SlaveWaitTime waitTimeSlaveB, char jobType) {
 		if (jobType == 'B') {
-			if (waitTimeSlaveB + 2 < waitTimeSlaveA + 10) {
-				// calls slave A
-				waitTimeSlaveB = waitTimeSlaveB + 2;
+			if (waitTimeSlaveB.getCurrValue() + 2 < waitTimeSlaveA.getCurrValue() + 10) {
+				// calls slave B
+				waitTimeSlaveB.setCurrValue(waitTimeSlaveB.getCurrValue() + 2);
 			} else {
-				// put job on slave B
-				waitTimeSlaveA = waitTimeSlaveA + 10;
+				// put job on slave A
+				waitTimeSlaveA.setCurrValue(waitTimeSlaveA.getCurrValue() + 10);
 			}
 		} else if (jobType == 'A') {
-			if (waitTimeSlaveA + 2 < waitTimeSlaveB + 10) {
-				// put job on slave B
-				waitTimeSlaveA = waitTimeSlaveA + 2;
+			if (waitTimeSlaveA.getCurrValue() + 2 < waitTimeSlaveB.getCurrValue() + 10) {
+				// put job on slave A
+				waitTimeSlaveA.setCurrValue(waitTimeSlaveA.getCurrValue() + 2);
 			} else {
-				// put job on slave a
-				waitTimeSlaveB = waitTimeSlaveB + 10;
+				// put job on slave B
+				waitTimeSlaveB.setCurrValue(waitTimeSlaveB.getCurrValue() + 10);
 			}
 
 		}
