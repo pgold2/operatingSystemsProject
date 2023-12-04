@@ -1,3 +1,4 @@
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,9 +15,13 @@ public class Server {
             System.out.println("Server started. Waiting for connections...");
             Socket clientSocket = serverSocket.accept();
             System.out.println("Client connected.");
-            PrintWriter responseWriter = new PrintWriter(clientSocket.getOutputStream(), true);
-            BufferedReader requestReader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
+            char jobHandler = (char)in.read();
+            //calls the algorithm class to figure out which job to do
+            Algorithm algorithmObj = new Algorithm();
+            algorithmObj.getsJobType(jobHandler);//sends the job type to the algorithm class
 
             System.out.println("Finished sending jobs");
 
@@ -26,4 +31,4 @@ public class Server {
             System.err.println("Exception caught when running the server: " + e.getMessage());
         } //closes catch
     } //closes main
-}//closes class
+}//closes class

@@ -1,31 +1,43 @@
-package semesterProject;
 
 public class Algorithm {
+	private static char jobHandler;
 
+	//empty constructor
+	public Algorithm() {
+
+	}
+	//constructor
+	public Algorithm(char jobHandler) {
+		this.jobHandler = jobHandler;
+	}
 	public static void main(String[] args) {
-		int waitTimeSlaveA = 0;
-		int waitTimeSlaveB = 0;
 
-		sendToSlaveAccToJobType(waitTimeSlaveA, waitTimeSlaveB);
+		getsJobType(jobHandler);
+		//sendToSlaveAccToJobType(jobHandler);
 
 	}// closes main
 
-	private static void sendToSlaveAccToJobType(int waitTimeSlaveA, int waitTimeSlaveB) {
-		waitTimeSlaveA= 0; 
-		waitTimeSlaveB = 0; 
-		char jobType = ' ';
-		if (jobType == 'A') {
-			jobTypeIsA(waitTimeSlaveA, waitTimeSlaveB, jobType);
+	public static void getsJobType(char jobHandler ) {
+		sendToSlaveAccToJobType(jobHandler);
+	}
+
+	private static void sendToSlaveAccToJobType(char jobHandler) {
+
+		int waitTimeSlaveA= 0;
+		int waitTimeSlaveB = 0;
+		//char jobType = ' ';
+		if (jobHandler == 'A') {
+			jobTypeIsA(waitTimeSlaveA, waitTimeSlaveB, jobHandler);
 		}
 		else {
-		jobTypeIsB(waitTimeSlaveA, waitTimeSlaveB, jobType);
+			jobTypeIsB(waitTimeSlaveA, waitTimeSlaveB, jobHandler);
 		}
 	}// closes sendToSlaveAccToJobType()
 
-	
-	//sends job A to fastest slave 
-	private static void jobTypeIsA(int waitTimeSlaveA, int waitTimeSlaveB, char jobType) {
-		if (jobType == 'A') {
+
+	//sends job A to fastest slave
+	private static void jobTypeIsA(int waitTimeSlaveA, int waitTimeSlaveB, char jobHandler) {
+		if (jobHandler == 'A') {
 			if (waitTimeSlaveA + 2 < waitTimeSlaveB + 10) {
 				// calls slave A
 				waitTimeSlaveA = waitTimeSlaveA + 2;
@@ -33,7 +45,7 @@ public class Algorithm {
 				// put job on slave B
 				waitTimeSlaveB = waitTimeSlaveB + 10;
 			}
-		} else if (jobType == 'B') {
+		} else if (jobHandler == 'B') {
 			if (waitTimeSlaveB + 2 < waitTimeSlaveA + 10) {
 				// put job on slave B
 				waitTimeSlaveB = waitTimeSlaveB + 2;
@@ -44,8 +56,8 @@ public class Algorithm {
 
 		}
 	}
-	
-	//sends job B to fastest slave 
+
+	//sends job B to fastest slave
 	private static void jobTypeIsB(int waitTimeSlaveA, int waitTimeSlaveB, char jobType) {
 		if (jobType == 'B') {
 			if (waitTimeSlaveB + 2 < waitTimeSlaveA + 10) {
@@ -66,4 +78,4 @@ public class Algorithm {
 
 		}
 	}
-}// closes class
+}// closes class
