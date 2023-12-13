@@ -11,9 +11,6 @@ import java.net.*;
 public class Client {
     public static void main(String[] args) {
 
-
-
-
         int port = 12321;
         String host = "localhost";
 
