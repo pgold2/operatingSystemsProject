@@ -1,3 +1,4 @@
+package semesterProject; 
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,9 +11,6 @@ import java.net.*;
 
 public class Client {
     public static void main(String[] args) {
-
-
-
 
         int port = 12321;
         String host = "localhost";
@@ -29,9 +27,12 @@ public class Client {
             System.out.println("Welcome!");
             System.out.println("Which job would you like to do? (A or  B): ");
             char chooseJob = scanner.next().charAt(0);
-
+            System.out.println("Enter the ID for your job request"); 
+            int ID = scanner.nextInt();
+            Request requestObj = new Request( ID, chooseJob);//creates Request object 
+            
             if (chooseJob == 'A'){
-                out.println("A");//sends to server
+                out.println(requestObj);//sends to server
                 System.out.println("Job (A) request sent");
             } // closes if 1
             else if (chooseJob == 'B' ){
