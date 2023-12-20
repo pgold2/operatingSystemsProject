@@ -1,15 +1,16 @@
+package semesterProject;
 /**
  * Both Slave A and SlaveB do the two types of jobs and sleep according to diff
  * amount of seconds specified in project requirements
  */
 public class SlaveB
 {
-        private int jobNum;
+        private char jobNum;
     /**
      *
      * @param j corresponds to jobNum which is either 1 or 2
      */
-    public SlaveB(int j)
+    public SlaveB(char j)
     {
         jobNum = j;
     }
@@ -17,25 +18,25 @@ public class SlaveB
     {
 
         // job 1 will sleep for 10 sec on slave B
-        if (jobNum == 1)
+        if (jobNum == 'A')
         {
             int sleep = 10;
             while (sleep > 0)
             {
                 sleep--;
             }
-            System.out.println("job 1 done.");
+            System.out.println("job A done.");
         }
 
         // job 2 will sleep for 2 sec on slave B
-        if (jobNum == 2)
+        if (jobNum == 'B')
         {
             int sleep = 2;
             while (sleep > 0)
             {
                 sleep--;
             }
-            System.out.println("job 2 done.");
+            System.out.println("job B done.");
         }
     }
 }
