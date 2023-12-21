@@ -7,7 +7,8 @@ public class Request implements Serializable {
 	
 	//constructor 
 	public Request(int ID, char jobType) {
-		
+		this.ID = ID;
+		this.jobType = jobType;
 	}
 
 	//getters
