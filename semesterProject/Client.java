@@ -20,6 +20,7 @@ public class Client {
         int port = Integer.parseInt(args[0]);
 
         String host = "localhost";
+        //String clientID;
 
         Socket clientSocket = null;
         try {
@@ -32,16 +33,17 @@ public class Client {
             Scanner scanner = new Scanner(System.in);// creates new scanner object
             System.out.println("Welcome!");
             System.out.println("Which job would you like to do? (A or  B): ");
-            char chooseJob = scanner.next().charAt(0);
+            String chooseJob = scanner.nextLine();
             System.out.println("Enter the ID for your job request"); 
-            int ID = scanner.nextInt();
-            Request requestObj = new Request( ID, chooseJob);//creates Request object 
+            String jobID = scanner.nextLine();
+
+            Request requestObj = new Request(jobID, chooseJob);//creates Request object
             
-            if (chooseJob == 'A'){
+            if (chooseJob == "A"){
                 out.println(requestObj);//sends to server
                 System.out.println("Job (A) request sent");
             } // closes if 1
-            else if (chooseJob == 'B' ){
+            else if (chooseJob == "B" ){
                 out.println("B"); //sends to server
                 System.out.println("Job (B) request sent");
             } // closes if 2
@@ -49,7 +51,7 @@ public class Client {
                 System.out.println("\nERROR! this is an invalid choice - make sure to enter a capital letter");
                 System.out.println("\nRe-enter your choice below: ");
                 System.out.println("choose job A or B: ");
-                chooseJob = scanner.next().charAt(0);
+                chooseJob = scanner.nextLine();
             }
             scanner.close();
 

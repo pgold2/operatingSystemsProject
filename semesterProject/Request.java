@@ -2,30 +2,47 @@ package semesterProject;
 import java.io.Serializable;
 
 public class Request implements Serializable {
-	private int ID; 
-	private char jobType; 
+	private String jobID;
+	private String jobType;
+
+	private int clientID;
 	
 	//constructor 
-	public Request(int ID, char jobType) {
-		this.ID = ID;
+	public Request(String jobID, String jobType, int clientID) {
+		this.jobID = jobID;
+		this.jobType = jobType;
+		this.clientID = clientID;
+	}
+
+	public Request(String jobID, String jobType){
+		this.jobID = jobID;
 		this.jobType = jobType;
 	}
 
+
 	//getters
-	public int getID() {
-		return ID;
+	public String getJobID() {
+		return jobID;
 	}
 	
-	public char getJobType() {
+	public String getJobType() {
 		return jobType;
 	}
 	
 	//setters
 	public void setID(int ID) {
-		this.ID= ID; 
+		this.jobID= jobID;
 	}
 	
 	public void setJobType(char jobType) {
-		this.jobType= jobType; 
+		this.jobType= String.valueOf(jobType);
+	}
+
+	public String toString() {
+		return "Job type: " + this.jobType + " Job ID: " + this.jobID + " Client ID: " + clientID;
+	}
+
+	public int getClientID() {
+		return clientID;
 	}
 }

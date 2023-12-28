@@ -23,4 +23,13 @@ public class SlaveWaitTime
             return Integer.toString(value);
         }
 
+        public void removeCounter(int decrementNum){
+             if (decrementNum == 2){
+                 value =-2;
+             } else {
+                 value =- 10;
+             }
+        }
+
+
 }
