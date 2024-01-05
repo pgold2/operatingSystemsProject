@@ -31,5 +31,15 @@ public class SlaveWaitTime
              }
         }
 
+        public void addToCounter(int incrementNum){
+            if (incrementNum == 2){
+                value =+2;
+            } else {
+                value =+ 10;
+            }
+
+        }
+
+
 
 }

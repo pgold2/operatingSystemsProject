@@ -1,4 +1,4 @@
-package semesterProject;
+/*package semesterProject;
 public class Algorithm {
 	private static char jobHandler;
 
@@ -99,3 +99,4 @@ public class Algorithm {
 		}
 	}
 }// closes class
+*/

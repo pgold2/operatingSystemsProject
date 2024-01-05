@@ -38,6 +38,7 @@ public class Request implements Serializable {
 		this.jobType= String.valueOf(jobType);
 	}
 
+	@Override
 	public String toString() {
 		return "Job type: " + this.jobType + " Job ID: " + this.jobID + " Client ID: " + clientID;
 	}

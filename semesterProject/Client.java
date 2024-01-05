@@ -10,15 +10,7 @@ import java.util.Scanner;
 public class Client {
     public static void main(String[] args) {
 
-        if (args.length != 1)
-        {
-            System.err.println("Usage: java EchoServer <port number>");
-            System.exit(1);
-        }
-        // can use 30121 and something else
-
-        int port = Integer.parseInt(args[0]);
-
+        int port = 13531;
         String host = "localhost";
         //String clientID;
 
@@ -39,16 +31,17 @@ public class Client {
 
             Request requestObj = new Request(jobID, chooseJob);//creates Request object
             
-            if (chooseJob == "A"){
-                out.println(requestObj);//sends to server
+            if (chooseJob.equalsIgnoreCase("a")){
+                out.println(requestObj.getJobID());//sends to server
+                out.println(requestObj.getJobType());
                 System.out.println("Job (A) request sent");
             } // closes if 1
-            else if (chooseJob == "B" ){
+            else if (chooseJob.equalsIgnoreCase("b") ){
                 out.println("B"); //sends to server
                 System.out.println("Job (B) request sent");
             } // closes if 2
             else {
-                System.out.println("\nERROR! this is an invalid choice - make sure to enter a capital letter");
+                System.out.println("\nERROR! this is an invalid choice - choose A or B");
                 System.out.println("\nRe-enter your choice below: ");
                 System.out.println("choose job A or B: ");
                 chooseJob = scanner.nextLine();

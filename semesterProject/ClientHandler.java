@@ -1,4 +1,4 @@
-package semesterProject;
+/*package semesterProject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,3 +34,4 @@ class ClientHandler implements Runnable {
         }
     }//closes run method
 } //closes client handler class
+*/

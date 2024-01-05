@@ -60,7 +60,7 @@ public class MasterReadFromSlaveA extends Thread {
                     System.out.println();
 
                     //if jobtype is A, remove 2 from counterA
-                    if (finishedJob.getJobType() == "A") {
+                    if (finishedJob.getJobType().equalsIgnoreCase("A") ){
                         synchronized (counterA) {
                             counterA.removeCounter(2);
                         }
