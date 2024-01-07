@@ -18,14 +18,14 @@ public class Server {
         try(ServerSocket serverSocket = new ServerSocket(port);){
                 System.out.println("Server started. Waiting for connections...");
                 Socket slaveSocketA = serverSocket.accept();
-                System.out.println("slave a connect");
+                System.out.println("Slave A connected...");
 
                  Socket slaveSocketB = serverSocket.accept();
-                 System.out.println("slave b connect");
+                 System.out.println("Slave B connect...");
                 Socket clientSocket1 = serverSocket.accept();
-                System.out.println("client one connect");
+                System.out.println("Client One connected.");
                 Socket clientSocket2 = serverSocket.accept();
-                System.out.println("client two connect");
+                System.out.println("Client Two connected.");
 
 
 

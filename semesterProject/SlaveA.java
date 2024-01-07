@@ -1,5 +1,7 @@
 package semesterProject;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -19,11 +21,13 @@ public class SlaveA {
             String host ="localhost";
             try (
                     Socket slaveASocket = new Socket(host, port);
-                    ObjectOutputStream os = new ObjectOutputStream(slaveASocket.getOutputStream());
-                    ObjectInputStream is = new ObjectInputStream(slaveASocket.getInputStream());
+                    ObjectOutputStream output = new ObjectOutputStream(slaveASocket.getOutputStream());
+                    ObjectInputStream input = new ObjectInputStream(slaveASocket.getInputStream());
+
             ){
+                System.out.println("Slave A Connected To Master");
                 //read a job from the master
-                Request job = (Request) is.readObject();
+                Request job = (Request) input.readObject();
                 System.out.println("received by slave A: " + job);
 
                 while( job != null) {
@@ -53,10 +57,10 @@ public class SlaveA {
 
 
                     //once job complete, return to master
-                    os.writeObject(job);
+                    output.writeObject(job);
 
                     //read the next job
-                    job = (Request) is.readObject();
+                    job = (Request) input.readObject();
                 }
             }
             catch (UnknownHostException e) {

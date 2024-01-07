@@ -17,12 +17,12 @@ public class SlaveB {
 
     //socket: slave B to master
     try (Socket slaveBSocket = new Socket(host, port);
-         ObjectOutputStream os = new ObjectOutputStream(slaveBSocket.getOutputStream());
-         ObjectInputStream is = new ObjectInputStream(slaveBSocket.getInputStream());
+         ObjectOutputStream output = new ObjectOutputStream(slaveBSocket.getOutputStream());
+         ObjectInputStream input = new ObjectInputStream(slaveBSocket.getInputStream());
     ){
-
+        System.out.println("Slave B Connected to Master");
         //read a job from the master
-        Request job = (Request) is.readObject();
+        Request job = (Request) input.readObject();
         System.out.println("received by slave B: " + job);
 
         while( job  != null) {
@@ -49,10 +49,10 @@ public class SlaveB {
             System.out.println();
 
             //once job is complete, return to master
-            os.writeObject(job);
+            output.writeObject(job);
 
             //read next job from master
-            job = (Request) is.readObject();
+            job = (Request) input.readObject();
         }
     }
     catch (UnknownHostException e) {
