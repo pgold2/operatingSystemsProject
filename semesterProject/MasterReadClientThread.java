@@ -36,7 +36,9 @@ public class MasterReadClientThread extends Thread {
 
                     //create new job and assign job type, jobId, and clientID
                     Request newJob = new Request(jobId, jobType, clientID);
-                    System.out.println("Received from client: Job Type: " + newJob.getJobType() + " Job ID: " + newJob.getJobID());
+                    System.out.println("Received from client: " +
+                            "\n\t\t\tJob Type: " + newJob.getJobType() + " " +
+                            "\n\t\t\tJob ID: " + newJob.getJobID());
                     System.out.println();
 
 

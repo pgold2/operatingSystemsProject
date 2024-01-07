@@ -45,7 +45,8 @@ public class SlaveB {
                 }
             }
             System.out.println();
-            System.out.println("Slave B finished working on  " + job + ". Returning to master ");
+            System.out.println("Slave B finished working on  " + job );
+            System.out.println("Returning to Master...");
             System.out.println();
 
             //once job is complete, return to master

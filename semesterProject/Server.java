@@ -21,11 +21,11 @@ public class Server {
                 System.out.println("Slave A connected...");
 
                  Socket slaveSocketB = serverSocket.accept();
-                 System.out.println("Slave B connect...");
+                 System.out.println("Slave B connected...");
                 Socket clientSocket1 = serverSocket.accept();
-                System.out.println("Client One connected.");
+                System.out.println("Client One connected...");
                 Socket clientSocket2 = serverSocket.accept();
-                System.out.println("Client Two connected.");
+                System.out.println("Client Two connected...");
 
 
 

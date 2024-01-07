@@ -52,9 +52,9 @@ public class SlaveA {
                     }
 
                     System.out.println();
-                    System.out.println("Slave A finished working on " + job + ". Returning to master ");
+                    System.out.println("Slave A finished working on " + job );
+                    System.out.println("Returning to Master...");
                     System.out.println();
-
 
                     //once job complete, return to master
                     output.writeObject(job);

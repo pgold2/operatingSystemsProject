@@ -28,7 +28,7 @@ public class MasterReadFromSlaveB extends Thread {
             //read in first completed job from slaveA
             finishedJob = (Request) readObjectFromSlaveB.readObject();
             while (true) {
-                System.out.println("Master received " + finishedJob + " from slave B");
+                System.out.println("Master Received From Slave B== " + finishedJob);
                 System.out.println();
 
                 //as long as there are jobs coming in loop
@@ -53,7 +53,7 @@ public class MasterReadFromSlaveB extends Thread {
                     System.out.println(completedJobs2);
                     System.out.println();
 
-                    System.out.println(finishedJob + " completed by slave B. Sending back to client " /*+ finishedJob.getClientID()*/ );
+                    System.out.println(finishedJob + " completed by slave B. \nSending back to client... " /*+ finishedJob.getClientID()*/ );
                     System.out.println();
 
                     //if jobtype is A, remove 2 from counterA
