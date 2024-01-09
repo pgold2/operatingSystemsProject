@@ -24,7 +24,7 @@ public class Client2 {
             Scanner scanner = new Scanner(System.in);
             boolean continueLoop = true;
 
-            while (continueLoop) {
+            while (true) {
                 System.out.println("Welcome Client 2!");
                 System.out.println("Which job would you like to do? (A or B) (or exit to stop): ");
                 String chooseJob = scanner.nextLine();
@@ -44,7 +44,8 @@ public class Client2 {
                     out.println(requestObj.getJobType());
                     System.out.println("Job (A) request sent");
                 } else if (chooseJob.equalsIgnoreCase("b")) {
-                    out.println("B");
+                    out.println(requestObj.getJobID());
+                    out.println(requestObj.getJobType());
                     System.out.println("Job (B) request sent");
                 } else {
                     System.out.println("\nERROR! This is an invalid choice - choose A or B");

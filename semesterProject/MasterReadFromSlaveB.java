@@ -7,14 +7,14 @@ import java.util.ArrayList;
 public class MasterReadFromSlaveB extends Thread {
 
     private ObjectInputStream readObjectFromSlaveB;
-    private ArrayList<Request> completedJobs1;
-    private ArrayList<Request> completedJobs2;
+    private ArrayList<Request> completedJobsA;
+    private ArrayList<Request> completedJobsB;
     private SlaveWaitTime counterA;
     private SlaveWaitTime counterB;
     public MasterReadFromSlaveB(ObjectInputStream readObjectFromSlaveB, ArrayList<Request> completedJobs1, ArrayList<Request> completedJobs2, SlaveWaitTime counterA, SlaveWaitTime counterB) {
         this.readObjectFromSlaveB = readObjectFromSlaveB;
-        this.completedJobs1 = completedJobs1;
-        this.completedJobs2 = completedJobs2;
+        this.completedJobsA = completedJobs1;
+        this.completedJobsB = completedJobs2;
         this.counterA = counterA;
         this.counterB = counterB;
 
@@ -35,37 +35,38 @@ public class MasterReadFromSlaveB extends Thread {
                 if (finishedJob != null) {
                     //if job is from client 1, add to array of completedJobs1
                     if (finishedJob.getClientID() == 1) {
-                        synchronized (completedJobs1) {
-                            completedJobs1.add(finishedJob);
+                        synchronized (completedJobsA) {
+                            completedJobsA.add(finishedJob);
                         }
                     }
                     //if job is from client 2, add to array of completedJobs2
                     else {
-                        synchronized (completedJobs2) {
-                            completedJobs2.add(finishedJob);
+                        synchronized (completedJobsB) {
+                            completedJobsB.add(finishedJob);
                         }
                     }
+                    /*
                     System.out.println("Completed Jobs list 1: ");
-                    System.out.println(completedJobs1);;
+                    System.out.println(completedJobsA);;
 
 
                     System.out.println("Completed Jobs list 2: ");
-                    System.out.println(completedJobs2);
+                    System.out.println(completedJobsB);
                     System.out.println();
-
+*/
                     System.out.println(finishedJob + " completed by slave B. \nSending back to client... " /*+ finishedJob.getClientID()*/ );
                     System.out.println();
 
-                    //if jobtype is A, remove 2 from counterA
-                    if (finishedJob.getJobType() == "B") {
+                    //if jobtype is B, remove 2 from counterB
+                    if (finishedJob.getJobType().equalsIgnoreCase("B")) {
                         synchronized (counterB) {
                             counterB.removeCounter(2);
-                        System.out.println("2 removed from slave A counter ");
+                        System.out.println("2 removed from slave B counter ");
                         System.out.println();
                         }
 
                     }
-                    //if jobtype is B, remove 10 from counterB
+                    //if jobtype is A, remove 10 from counterA
                     else {
                         synchronized (counterB) {
                             counterB.removeCounter(10);

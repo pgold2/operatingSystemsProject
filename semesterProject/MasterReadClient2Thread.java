@@ -4,13 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MasterReadClientThread extends Thread {
+public class MasterReadClient2Thread extends Thread {
 
     private BufferedReader readClient;
     private ArrayList<Request> jobArray;
     private int clientID;
 
-    public MasterReadClientThread(BufferedReader readClient, ArrayList<Request> JobArray, int clientID) {
+    public MasterReadClient2Thread(BufferedReader readClient, ArrayList<Request> JobArray, int clientID) {
         this.readClient = readClient;
         this.jobArray = JobArray;
         this.clientID = clientID;
@@ -27,11 +27,11 @@ public class MasterReadClientThread extends Thread {
             String jobType;
 
             while (true) {
-                String clientRequest1 = readClient.readLine();
+                String readFromClientJobID = readClient.readLine();
                 String clientRequest2 = readClient.readLine();
 
-                if (clientRequest1 != null && clientRequest2 != null) {
-                    jobId = clientRequest1;
+                if (readFromClientJobID != null && clientRequest2 != null) {
+                    jobId = readFromClientJobID;
                     jobType = clientRequest2;
 
                     //create new job and assign job type, jobId, and clientID

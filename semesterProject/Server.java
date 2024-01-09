@@ -46,10 +46,10 @@ public class Server {
 
 
                 //create thread to read from client 1
-                Thread readClient1Thread = new MasterReadClientThread (readFromClient1, jobArray, 1);
+                Thread readClient1Thread = new MasterReadClient1Thread(readFromClient1, jobArray, 1);
 
                 //create thread to read from client 2
-                Thread readClient2Thread = new MasterReadClientThread (readFromClient2, jobArray, 2);
+                Thread readClient2Thread = new MasterReadClient2Thread(readFromClient2, jobArray, 2);
 
             //create thread to write to slaves
             Thread writeToSlaves = new MasterWriteToSlaveThread (writeObjectToSlaveA, writeObjectToSlaveB, jobArray, counterA, counterB);

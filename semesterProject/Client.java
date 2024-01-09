@@ -44,7 +44,8 @@ public class Client {
                     out.println(requestObj.getJobType());
                     System.out.println("Job (A) request sent");
                 } else if (chooseJob.equalsIgnoreCase("b")) {
-                    out.println("B");
+                    out.println(requestObj.getJobID());
+                    out.println(requestObj.getJobType());
                     System.out.println("Job (B) request sent");
                 } else {
                     System.out.println("\nERROR! This is an invalid choice - choose A or B");

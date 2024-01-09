@@ -48,6 +48,7 @@ public class MasterReadFromSlaveA extends Thread {
                             completedJobsB.add(finishedJob);
                         }
                     }
+                    /*
                     System.out.println("Completed Jobs list 1: ");
                     System.out.println(completedJobsA);;
 
@@ -55,7 +56,7 @@ public class MasterReadFromSlaveA extends Thread {
                     System.out.println("Completed Jobs list 2: ");
                     System.out.println(completedJobsB);
                     System.out.println();
-
+*/
                     System.out.println(finishedJob + " completed by slave A. \nSending back to client... " /*+ finishedJob.getClientID()*/ );
                     System.out.println();
 
