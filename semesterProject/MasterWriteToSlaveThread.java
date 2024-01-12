@@ -31,17 +31,16 @@ public class MasterWriteToSlaveThread extends Thread{
             //as long as jobArray is not empty
             if(!jobArray.isEmpty()) {
 
-                System.out.println("Slave Counter A: " + counterA.getCurrValue() + "\tSlave counter B: " + counterB.getCurrValue());
+               /* System.out.println("Slave Counter A: " + counterA.getCurrValue() + "\tSlave counter B: " + counterB.getCurrValue());*/
                 System.out.println();
 
 
                 //if the job is type A
                 if(jobArray.get(0).getJobType().equalsIgnoreCase ("A")) {
 
-                    System.out.println("HERE IN JOB = A, ");
                     //if sending optimal job to slaveA is less than sending to slaveB
                     if(counterA.getCurrValue() + 2 <= counterB.getCurrValue() + 10) {
-                        System.out.println("JOB A _ SENDING TO SLAVE A");
+                        System.out.println("JOB A SENDING TO SLAVE A");
                         //synchronize global counter, and then add appropriately
                         synchronized(counterA) {
                             counterA.addToCounter(2);
@@ -79,7 +78,7 @@ public class MasterWriteToSlaveThread extends Thread{
 
                 //if job is type B
                 else {
-                    System.out.println("JOB B GOING TO B");
+                    System.out.println("JOB B GOING TO SLAVE B");
                     //if sending jobB to slaveB is more optimal than sending to slaveA
                     if(counterB.getCurrValue() + 2 <= counterA.getCurrValue() + 10) {
                         //synchronize global counter, and then add appropriately

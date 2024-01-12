@@ -48,15 +48,6 @@ public class MasterReadFromSlaveA extends Thread {
                             completedJobsB.add(finishedJob);
                         }
                     }
-                    /*
-                    System.out.println("Completed Jobs list 1: ");
-                    System.out.println(completedJobsA);;
-
-
-                    System.out.println("Completed Jobs list 2: ");
-                    System.out.println(completedJobsB);
-                    System.out.println();
-*/
                     System.out.println(finishedJob + " completed by slave A. \nSending back to client... " /*+ finishedJob.getClientID()*/ );
                     System.out.println();
 
@@ -65,18 +56,12 @@ public class MasterReadFromSlaveA extends Thread {
                         synchronized (counterA) {
                             counterA.removeCounter(2);
                         }
-                        System.out.println("2 removed from slave A counter ");
-                        System.out.println();
-
                     }
                     //if jobtype is B, remove 10 from counterB
                     else {
                         synchronized (counterB) {
                             counterB.removeCounter(10);
                         }
-                        System.out.println("10 removed from slave B counter ");
-                        System.out.println();
-
 
                     }
                     //read the next finished job

@@ -8,7 +8,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class Client {
+public class Client1 {
     public static void main(String[] args) {
         int port = 13531;
         String host = "localhost";
@@ -24,8 +24,8 @@ public class Client {
             Scanner scanner = new Scanner(System.in);
             boolean continueLoop = true;
 
-            while (continueLoop) {
-                System.out.println("Welcome Client 1!");
+            while (true) {
+                System.out.println("Welcome Client 2!");
                 System.out.println("Which job would you like to do? (A or B) (or exit to stop): ");
                 String chooseJob = scanner.nextLine();
 
@@ -39,11 +39,11 @@ public class Client {
 
                 Request requestObj = new Request(jobID, chooseJob);
 
-                if (chooseJob.equalsIgnoreCase("a")) {
+                if (chooseJob.equalsIgnoreCase("A")) {
                     out.println(requestObj.getJobID());
                     out.println(requestObj.getJobType());
                     System.out.println("Job (A) request sent");
-                } else if (chooseJob.equalsIgnoreCase("b")) {
+                } else if (chooseJob.equalsIgnoreCase("B")) {
                     out.println(requestObj.getJobID());
                     out.println(requestObj.getJobType());
                     System.out.println("Job (B) request sent");
