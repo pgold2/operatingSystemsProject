@@ -32,7 +32,6 @@ public class ClientWriteToMasterThread extends Thread {
             System.out.println("sending JobType: " + job + " ID: " + id + " to master");
             System.out.println();
 
-            //add id to to job
             job = job.concat(String.valueOf(id));
 
             //write the job to the master

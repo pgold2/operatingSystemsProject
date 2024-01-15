@@ -31,7 +31,6 @@ public class MasterWriteToSlaveThread extends Thread{
             //as long as jobArray is not empty
             if(!jobArray.isEmpty()) {
 
-               /* System.out.println("Slave Counter A: " + counterA.getCurrValue() + "\tSlave counter B: " + counterB.getCurrValue());*/
                 System.out.println();
 
 
@@ -51,7 +50,6 @@ public class MasterWriteToSlaveThread extends Thread{
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                      //  System.out.println("Master writing job to slave A: " + jobArray.get(0));
                         System.out.println();
 
                     }
@@ -91,7 +89,6 @@ public class MasterWriteToSlaveThread extends Thread{
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                       // System.out.println("Master writing job to slave B: " + jobArray.get(0));
 
                     }
                     else {
@@ -107,7 +104,6 @@ public class MasterWriteToSlaveThread extends Thread{
                             // TODO Auto-generated catch block
                             e.printStackTrace();
                         }
-                       // System.out.println("Master writing job to slave A: " + jobArray.get(0));
                     }
 
                 }

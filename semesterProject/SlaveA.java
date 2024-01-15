@@ -12,8 +12,6 @@ import java.net.UnknownHostException;
  * Both Slave A and SlaveB do the two types of jobs and sleep according to diff
  * amount of seconds specified in project requirements
  *
- * I just thought we should probably have an arraylist that acts as a queue for all the jobs waiting to be
- * processed, and then when we do the job, we remove it from the list. ex. [1,2,1,1,2]
  **/
 public class SlaveA {
     public static void main(String[] args) {

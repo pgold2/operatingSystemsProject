@@ -25,7 +25,7 @@ public class Client2 {
             boolean continueLoop = true;
 
             while (continueLoop) {
-                System.out.println("Welcome Client 1!");
+                System.out.println("Welcome Client 2!");
                 System.out.println("Which job would you like to do? (A or B) (or exit to stop): ");
                 String chooseJob = scanner.nextLine();
 

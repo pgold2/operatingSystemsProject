@@ -22,7 +22,7 @@ public class MasterReadClient1Thread extends Thread {
         System.out.println();
 
         try {
-            //initialize job id counter and String
+            //initialize
             String jobId = "";
             String jobType;
 
